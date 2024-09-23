@@ -1,0 +1,9 @@
+{
+    "database": {
+        "DRIVER": "{SQL Server}",
+        "SERVER": "Tibu",
+        "DATABASE": "AplicacionQrs",
+        "Trusted_Connection": "yes"
+    },
+    "numeroQr": 111114
+}
