@@ -2,9 +2,19 @@ import pyodbc
 import json
 
 #Leer el archivo json
-with open('config.json') as f:
-    config=json.load(f)
-
+try:
+    with open('config.json') as f:
+        config=json.load(f)
+except FileNotFoundError:
+    print("Saliendo, No se entro al archivo de configuración")
+    exit()
+except PermissionError:
+    print("Saliendo, faltan permisos de lectura en la carpeta")
+    exit()
+except json.JSONDecodeError:
+    print("Saliendo, el formato del archivo de configuración es incorrecto")
+    exit()
+    
 # Crear la connection string
 connection_string = (
     f"DRIVER={config['database']['DRIVER']};"
